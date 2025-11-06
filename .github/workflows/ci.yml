@@ -37,9 +37,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: 🏗️ Build and push Docker image
-  uses: docker/build-push-action@v6
-  with:
-    push: true
-    tags: ghcr.io/${{ github.repository | toLower }}:latest
-
-
+      uses: docker/build-push-action@v6
+      with:
+        push: true
+        tags: ghcr.io/jossy2005/josselyn-mena:latest
