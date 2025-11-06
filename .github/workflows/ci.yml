@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - josselyn
-  pull_request:
 
 jobs:
   build:
