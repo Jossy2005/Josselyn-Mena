@@ -3,9 +3,10 @@ from app import app
 def test_home():
     client = app.test_client()
     response = client.get('/')
-    
+
     assert response.status_code == 200
-    assert b"¡Hola desde mi aplicación!" in response.data
+    assert "¡Hola desde mi aplicación!" in response.get_data(as_text=True)
+
 
 def test_saludo_personalizado():
     client = app.test_client()
@@ -13,4 +14,4 @@ def test_saludo_personalizado():
     response = client.get(f'/saludo/{nombre}')
 
     assert response.status_code == 200
-    assert bytes(f"¡Hola, {nombre}!", "utf-8") in response.data
+    assert f"¡Hola, {nombre}!" in response.get_data(as_text=True)
